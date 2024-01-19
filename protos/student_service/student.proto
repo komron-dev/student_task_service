@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package student;
+
+//This message is never used, 
+// it just describes the columns of table except tokens 
+message Student{
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string username = 4;
+    string email = 5;
+    string gender = 6;
+    string dateOfBirth = 7;
+    string major = 8;
+    string address = 9;
+    repeated Phone phone_numbers = 10;
+    string created_at = 11;
+    string updated_at = 12;
+    string deleted_at = 13;
+    string password = 14;
+}
+
+message CreateStudentReq{
+    string first_name = 1;
+    string last_name = 2;
+    string username = 3;
+    string email = 4;
+    string gender = 5;
+    string dateOfBirth = 6;
+    string major = 7;
+    string address = 8;
+    repeated Phone phone_numbers = 9;
+    string password  = 10;
+}
+
+message CreateStudentRes{
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string username = 4;
+    string email = 5;
+    string gender = 6;
+    string dateOfBirth = 7;
+    string major = 8;
+    string address = 9;
+    repeated Phone phone_numbers = 10;
+    string created_at = 11;
+}
+
+message UpdateStudentReq {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string username = 4;
+    string gender = 5;
+    string dateOfBirth = 6;
+    string major = 7;
+    string address = 8;
+    repeated Phone phone_numbers = 9;
+}
+
+message GetStudentRes{
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string username = 4;
+    string email = 7;
+    string gender = 8;
+    string dateOfBirth = 9;
+    string address = 10;
+    repeated Phone phone_numbers = 11;
+    string created_at = 12;
+    string major = 13;
+}
+
+message Address{
+    string name = 1;
+}
+
+message ById{
+    string studentId =1;
+}
+
+message Phone {
+    string phone_number = 1; 
+}
+
+message Success{
+    string message = 1;
+}
+
+message ListStudentsReq {
+    int64 page = 1;
+    int64 limit = 2;
+}
+
+message ListStudentsRes {
+    repeated GetStudentRes students = 1;
+    int64 count = 2;
+}
+message Tasks {
+
+}
+message GetTaskOfStudentRes {
+    repeated GetTaskRes tasks = 1;
+}
+
+message GetTaskRes {
+    string id = 1;
+    string title = 2;
+    string deadline = 3;
+    string summary = 4;
+    string student_id = 5;
+    string status = 6;
+    string created_at = 7;
+    string type = 8;
+}

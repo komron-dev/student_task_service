@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package task;
+
+
+//The first message is never used in methods, it just describes the columns of table 
+message Task{
+    string id = 1;
+    string title = 2;
+    string deadline = 3;
+    string summary = 4;
+    string student_id = 5;
+    string status = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+    string type = 10;
+}   
+
+message CreateTaskReq{
+    string title =1;
+    string deadline =2;
+    string summary =3;
+    string type = 4;
+    string student_id =5;
+}
+
+message CreateTaskRes {
+    string id = 1;
+    string title = 2;
+    string deadline = 3;
+    string summary = 4;
+    string student_id = 5;
+    string status = 6;
+    string created_at = 7;
+    string type = 8;
+}
+message GetTaskRes {
+    string id = 1;
+    string title = 2;
+    string deadline = 3;
+    string summary = 4;
+    string student_id = 5;
+    string status = 6;
+    string created_at = 7;
+    string type = 8;
+}
+
+message UpdateTaskReq {
+    string title = 1;
+    string deadline = 2;
+    string summary = 3;
+    string student_id = 4;
+    string status = 5;
+    string type = 6;
+    string id = 7;
+}
+
+
+message ById{
+    string task_id = 1;
+}
+
+message ListTasksReq {
+    int64 limit = 1;
+    int64 page = 2;
+}
+
+
+message ListTasksRes{
+    repeated GetTaskRes tasks = 1;
+    int64 count = 2;
+}
+
+message Empty{}
+
+message Success {
+    string message = 1;
+}

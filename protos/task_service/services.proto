@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "task_service/task.proto";
+
+package task;
+
+service TaskService {
+    rpc CreateTask(CreateTaskReq) returns (CreateTaskRes);
+    rpc GetTask(ById) returns (GetTaskRes);
+    rpc UpdateTask(UpdateTaskReq) returns (Success);
+    rpc DeleteTask(ById) returns (Success);
+    rpc ListOverDue(Empty) returns(ListTasksRes);
+    rpc ListTasks(ListTasksReq) returns(ListTasksRes);
+}

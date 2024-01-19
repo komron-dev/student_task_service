@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "student_service/student.proto";
+package student;
+
+service StudentService {
+    rpc CreateStudent(CreateStudentReq) returns (CreateStudentRes);
+    rpc GetStudent(ById) returns (GetStudentRes);
+    rpc UpdateStudent(UpdateStudentReq) returns (Success);
+    rpc DeleteStudent(ById) returns (Success);
+    rpc ListStudents(ListStudentsReq) returns (ListStudentsRes);
+}
